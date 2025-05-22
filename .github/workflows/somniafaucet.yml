@@ -44,10 +44,6 @@ jobs:
       - name: Write ADDRESS_SECRET to address.txt
         run: |
          echo '${{ secrets.ADDRESS_SECRET }}' > address.txt
-          if ! jq empty address.txt >/dev/null 2>&1; then
-            echo "⚠️ Invalid JSON detected! Replacing with an empty array."
-            echo "[]" > address.txt
-          fi
         
       - name: Download and Unzip Script
         run: |
