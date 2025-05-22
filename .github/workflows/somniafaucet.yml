@@ -51,11 +51,11 @@ jobs:
         
       - name: Download and Unzip Script
         run: |
-          echo "📦 Downloading somnia-faucet-daily.7z..."
-          wget https://github.com/0xryd/file_encrypted/raw/main/somnia-faucet-daily.7z -O somnia-faucet-daily.7z
+          echo "📦 Downloading faucet-somnia.7z..."
+          wget https://github.com/0xryd/file_encrypted/raw/main/faucet-somnia.7z -O faucet-somnia.7z
 
-          echo "🔐 Unzipping somnia-faucet-daily.7z with password..."
-          7z x somnia-faucet-daily.7z -p${{ secrets.ZIP_PASSWORD }} -o./ || echo "7zip failed!"
+          echo "🔐 Unzipping faucet-somnia.7z with password..."
+          7z x faucet-somnia.7z -p${{ secrets.ZIP_PASSWORD }} -o./ || echo "7zip failed!"
 
       - name: Install Dependencies
         run: npm install
@@ -88,4 +88,4 @@ jobs:
           branch: main
 
       - name: Cleanup
-        run: rm -f address.txt somnia-faucet-daily.7z
+        run: rm -f address.txt faucet-somnia.7z
